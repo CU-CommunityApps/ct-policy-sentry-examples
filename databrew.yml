@@ -1,0 +1,62 @@
+mode: crud
+name: 'databrew'
+
+read:
+- arn:aws:databrew:*:*:project/*
+- arn:aws:databrew:*:*:dataset/*
+- arn:aws:databrew:*:*:recipe/*
+- arn:aws:databrew:*:*:job/*
+- arn:aws:databrew:*:*:schedule/*
+
+write:
+- arn:aws:databrew:*:*:project/demo-*
+- arn:aws:databrew:*:*:dataset/demo-*
+- arn:aws:databrew:*:*:recipe/demo-*
+- arn:aws:databrew:*:*:job/demo-*
+- arn:aws:databrew:*:*:schedule/demo-*
+
+list:
+- arn:aws:databrew:*:*:project/*
+- arn:aws:databrew:*:*:dataset/*
+- arn:aws:databrew:*:*:recipe/*
+- arn:aws:databrew:*:*:job/*
+- arn:aws:databrew:*:*:schedule/*
+
+tagging:
+- arn:aws:databrew:*:*:project/demo-*
+- arn:aws:databrew:*:*:dataset/demo-*
+- arn:aws:databrew:*:*:recipe/demo-*
+- arn:aws:databrew:*:*:job/demo-*
+- arn:aws:databrew:*:*:schedule/demo-*
+
+permissions-management:
+- arn:aws:databrew:*:*:project/demo-*
+- arn:aws:databrew:*:*:dataset/demo-*
+- arn:aws:databrew:*:*:recipe/demo-*
+- arn:aws:databrew:*:*:job/demo-*
+- arn:aws:databrew:*:*:schedule/demo-*
+- arn:aws:iam::*:role/service-role/AWSGlueDataBrewServiceRole-demo-*
+- arn:aws:iam::*:policy/service-role/AwsGlueDataBrewServicePolicyForInputS3-demo-*
+
+# Actions that do not support resource constraints
+wildcard-only:
+  single-actions: # standalone actions
+  - ''
+  # Service-wide
+  service-read:
+  - 'databrew'
+  service-write:
+  - 'databrew'
+  service-list:
+  - 'databrew'
+  service-tagging:
+  - 'databrew'
+  service-permissions-management:
+  - 'databrew'
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- 'databrew:ListDatasets'
+- 'databrew:ListSchedules'
+# Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
+exclude-actions:
+- ''

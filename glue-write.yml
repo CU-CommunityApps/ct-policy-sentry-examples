@@ -1,0 +1,56 @@
+mode: crud
+name: 'glue-write'
+
+write:
+- arn:aws:glue:*:*:catalog
+- arn:aws:glue:*:*:database/demo_*
+- arn:aws:glue:*:*:table/demo_*/*
+- arn:aws:glue:*:*:tableVersion/demo_*
+- arn:aws:glue:*:*:connection/demo_*
+- arn:aws:glue:*:*:userDefinedFunction/demo_*
+- arn:aws:glue:*:*:devEndpoint/demo_*
+- arn:aws:glue:*:*:job/demo_*
+- arn:aws:glue:*:*:trigger/demo_*
+- arn:aws:glue:*:*:crawler/demo_*
+- arn:aws:glue:*:*:workflow/demo_*
+- arn:aws:glue:*:*:mlTransform/demo_*
+- arn:aws:glue:*:*:registry/demo_*
+- arn:aws:glue:*:*:schema/demo_*
+
+permissions-management:
+- arn:aws:glue:*:*:catalog
+- arn:aws:glue:*:*:database/demo_*
+- arn:aws:glue:*:*:table/demo_*/*
+- arn:aws:glue:*:*:tableVersion/demo_*
+- arn:aws:glue:*:*:connection/demo_*
+- arn:aws:glue:*:*:userDefinedFunction/demo_*
+- arn:aws:glue:*:*:devEndpoint/demo_*
+- arn:aws:glue:*:*:job/demo_*
+- arn:aws:glue:*:*:trigger/demo_*
+- arn:aws:glue:*:*:crawler/demo_*
+- arn:aws:glue:*:*:workflow/demo_*
+- arn:aws:glue:*:*:mlTransform/demo_*
+- arn:aws:glue:*:*:registry/demo_*
+- arn:aws:glue:*:*:schema/demo_*
+
+# Actions that do not support resource constraints
+wildcard-only:
+  single-actions: # standalone actions
+  - ''
+  # Service-wide
+  service-read:
+  - ''
+  service-write:
+  - 'glue'
+  service-list:
+  - ''
+  service-tagging:
+  - ''
+  service-permissions-management:
+  - 'glue'
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
+# Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
+exclude-actions:
+- ''

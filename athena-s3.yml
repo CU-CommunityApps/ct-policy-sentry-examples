@@ -1,0 +1,68 @@
+mode: crud
+name: 'athena/s3'
+# Specify resource ARNs
+read:
+# ATHENA
+- 'arn:aws:athena:*:*:workgroup/demo-*'
+- 'arn:aws:athena:*:*:datacatalog/demo-*'
+# S3
+- 'arn:aws:s3:::demo-*'
+- 'arn:aws:s3:::demo-*/*'
+
+# Sample data
+- arn:aws:s3:::athena-examples-us-east-1/*
+
+write:
+# ATHENA
+- 'arn:aws:athena:*:*:workgroup/demo-*'
+- 'arn:aws:athena:*:*:datacatalog/demo-*'
+# S3
+- 'arn:aws:s3:::demo-*'
+- 'arn:aws:s3:::demo-*/*'
+
+list:
+# ATHENA
+- 'arn:aws:athena:*:*:workgroup/demo-*'
+- 'arn:aws:athena:*:*:datacatalog/demo-*'
+# S3
+- 'arn:aws:s3:::demo-*'
+- 'arn:aws:s3:::demo-*/*'
+tagging:
+# ATHENA
+- 'arn:aws:athena:*:*:workgroup/demo-*'
+- 'arn:aws:athena:*:*:datacatalog/demo-*'
+# S3
+- 'arn:aws:s3:::demo-*'
+- 'arn:aws:s3:::demo-*/*'
+
+permissions-management:
+# ATHENA
+- 'arn:aws:athena:*:*:workgroup/demo-*'
+- 'arn:aws:athena:*:*:datacatalog/demo-*'
+# S3
+- 'arn:aws:s3:::demo-*'
+- 'arn:aws:s3:::demo-*/*'
+
+# Actions that do not support resource constraints
+wildcard-only:
+  single-actions: # standalone actions
+  - ''
+  # Service-wide
+  service-read:
+  - 's3'
+  - 'athena'
+  service-write:
+  - ''
+  service-list:
+  - 's3'
+  - 'athena'
+  service-tagging:
+  - ''
+  service-permissions-management:
+  - ''
+# Skip resource constraint requirements by listing actions here.
+skip-resource-constraints:
+- ''
+# Exclude actions from the output by specifying them here. Accepts wildcards, like kms:Delete*
+exclude-actions:
+- ''
